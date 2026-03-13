@@ -1,0 +1,57 @@
+Ошибка потому что вы пытаетесь загрузить node_modules (186 MB) - это слишком много для GitHub!
+
+Нужно исключить node_modules из git.
+
+✅ ИСПРАВЛЯЕМ ПО ШАГАМ:
+1️⃣ Создайте .gitignore файл
+cd /Users/ityshenko/Realapp
+nano .gitignore
+Вставьте это:
+
+# Зависимости
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Сборка
+.next/
+out/
+build/
+dist/
+
+# Переменные окружения
+.env
+.env.local
+.env.*.local
+
+# Логи
+logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Временные файлы
+*.tmp
+.cache/
+Сохраните: Ctrl+O → Enter → Ctrl+X
+
+2️⃣ Удалите node_modules из git
+cd /Users/ityshenko/Realapp
+
+# Удалить node_modules из индекса git (но оставить на диске)
+git rm -r --cached node_modules/
+
+# Удалить web/node_modules
+git rm -r --cached web/node_modules/
+
+# Удалить backend/node_modules  
+git rm -r --cached backend/node_modules/
